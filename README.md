@@ -4,6 +4,13 @@ Este repositorio o directorio contiene el desarrollo práctico para conectar un 
 
 A lo largo del taller, implementamos operaciones completas de CRUD (Crear, Leer, Actualizar y Eliminar) administradas mediante una interfaz interactiva de consola.
 
+## Arquitectura de Conexión: MongoDB y MongoDB Atlas
+Para este proyecto entendimos e implementamos cómo interactúan tres herramientas fundamentales:
+
+1.  **MongoDB Atlas (La Nube):** Es el servidor principal donde residen físicamente los datos. En lugar de instalar un motor local pesado, se desplegó un *Clúster* en los servidores de AWS a través de Atlas. Este actúa como la fuente de verdad del proyecto.
+2.  **PyMongo desde Colab (El Cliente Interactuando):** A través del cuaderno de Google Colab usamos la librería `pymongo`. Esta es nuestra "herramienta de control". Utilizando un enlace seguro (URI) con credenciales autorizadas, el script permite que lo que teclea el usuario en consola y los comandos CRUD (`insert_one`, `find`, `update_one`, `delete_one`) viajen por la red e impacten la nube instantáneamente.
+3.  **MongoDB Compass (Auditoría visual):** Es la interfaz gráfica instalada en el equipo que también se conecta directamente a Atlas. Independientemente de lo que se ejecute en el código de Python, sirvió para mirar "tras bambalinas", validando gráficamente la creación de las colecciones JSON de la base de datos `BD_CursoMongo` para asegurarnos de que la aplicación y la persistencia de datos funcionaran.
+
 ## Archivos Principales
 *   **`mongodb_for_all.ipynb`**: Cuaderno base del taller. Contiene la importación de liberías, la cadena de conexión a MongoDB Atlas y la definición lógica de las funciones que acceden e interactúan con la base de datos `BD_CursoMongo` y su colección `Estudiantes`.
 *   **`mongo.docx`**: Documento de referencia con el paso a paso teórico proporcionado en el material de clase para la creación de un clúster, ajustes de IP (Network Access) y usuarios de base de datos en AWS (Atlas).
